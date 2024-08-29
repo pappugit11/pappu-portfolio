@@ -1,13 +1,152 @@
-body {
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --tj-theme-secondary: #2a1454;
+  --tj-theme-primary: #8750f7;
+}
+* {
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+body {
+  background-color: #11001f;
+  color: #93b1a6;
+  font-size: 16px;
+  font-family: "Poppins";
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  color: #fff;
+}
+.container {
+  max-width: 540px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+.cmn_btn {
+  background-size: 200%;
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(var(--tj-theme-primary)),
+    color-stop(51%, var(--tj-theme-secondary)),
+    to(var(--tj-theme-primary))
+  );
+  background-image: -o-linear-gradient(
+    left,
+    var(--tj-theme-primary) 0%,
+    var(--tj-theme-secondary) 51%,
+    var(--tj-theme-primary) 100%
+  );
+  background-image: linear-gradient(
+    to right,
+    var(--tj-theme-primary) 0%,
+    var(--tj-theme-secondary) 51%,
+    var(--tj-theme-primary) 100%
+  );
+}
+.cmn_btn:hover {
+  background-position: -100%;
+}
+.icon-box {
+  background: -o-linear-gradient(
+    289deg,
+    var(--tj-theme-secondary) 0%,
+    var(--tj-theme-primary) 100%
+  );
+  background: linear-gradient(
+    161deg,
+    var(--tj-theme-secondary) 0%,
+    var(--tj-theme-primary) 100%
+  );
+}
+.banner_name::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  border-radius: 4px;
+  background: var(--tj-theme-primary);
+  background: -o-linear-gradient(
+    190deg,
+    var(--tj-theme-secondary) 0%,
+    var(--tj-theme-primary) 100%
+  );
+  background: linear-gradient(
+    260deg,
+    var(--tj-theme-secondary) 0%,
+    var(--tj-theme-primary) 100%
+  );
+  bottom: -4px;
+}
+.banner_txt_animation {
+  animation-name: example;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 3px #8750f7;
+}
+@keyframes example {
+  from {
+    transform: translate(-50%, -50%) scale(1);
+    transform-origin: center;
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1.2);
+    transform-origin: center;
+  }
+}
+.card:hover {
+  -webkit-box-shadow: 0px 0px 45px 0px #250243;
+  -moz-box-shadow: 0px 0px 45px 0px #250243;
+  box-shadow: 0px 0px 45px 0px #250243;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin_slow {
+  animation: spin 6s linear infinite;
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+@media (min-width: 1024px) {
+  .container {
+    max-width: 920px;
+  }
+}
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1170px;
+  }
+}
+
+@media (max-width: 767px) {
+  body {
+    font-size: 14px;
+  }
 }
